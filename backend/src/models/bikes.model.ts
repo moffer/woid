@@ -5,7 +5,7 @@ import { DataTypeUUIDv4 } from 'sequelize';
 
 export type BikeCreationAttributes = Optional<
   Bike,
-  'id' | 'description' | 'color' | 'currentLocationLang' | 'currentLocationLong' | 'createdAt' | 'updatedAt'
+  'id' | 'description' | 'color' | 'currentLocationLang' | 'currentLocationLong' | 'owner' | 'createdAt' | 'updatedAt'
 >;
 
 export class BikeModel extends Model<Bike, BikeCreationAttributes> implements Bike {
