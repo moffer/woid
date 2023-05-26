@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.erd": "vuerd",
+        "*.tpp": "cpp"
+    }
+}
