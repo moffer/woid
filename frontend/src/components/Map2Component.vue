@@ -25,8 +25,6 @@
       </ol-style>
     </ol-vector-layer>
 
-
-
     <ol-interaction-select @select="clicked">
       <ol-style>
         <ol-style-stroke color="red" :width="2"></ol-style-stroke>
