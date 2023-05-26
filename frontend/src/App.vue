@@ -3,9 +3,13 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import "vue3-openlayers/dist/vue3-openlayers.css";
 import User from './components/User.vue';
+import { useCoordinateStore, useUserStore, useRentStore } from '@/stores/counter'
+
+const userStore = useUserStore();
 </script>
 
 <template>
+  
   <header>
     <img alt="Vue logo" class="logo" src="/woid-icon.png" width="125" height="125" />
     <User></User>
@@ -16,6 +20,7 @@ import User from './components/User.vue';
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">Currently available bikes</RouterLink>
+        <RouterLink v-if="userStore.isUserLoggedIn" to="/ownbike">Own bike</RouterLink>
       </nav>
     </div>
   </header>

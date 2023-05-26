@@ -36,7 +36,6 @@ const { selectedBike } = toRefs(coordinateStore);
 const { rent } = toRefs(rentStore);
 
 function rentBike() {
-  console.log(userStore.isUserLoggedIn);
   if (userStore.isUserLoggedIn) {
     rentStore.updateRent();
     text.value = "You have rented the bike"
