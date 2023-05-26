@@ -1,14 +1,4 @@
 <template>
-  <!-- <input type="checkbox" id="checkbox" v-model="drawEnable" />
-    <label for="checkbox">Draw Enable</label>
-  
-    <select id="type" v-model="drawType">
-      <option value="Point">Point</option>
-      <option value="LineString">LineString</option>
-      <option value="Polygon">Polygon</option>
-      <option value="Circle">Circle</option>
-    </select> -->
-
   <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px;width: 100%">
     <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
 
@@ -16,54 +6,11 @@
       <ol-source-osm />
     </ol-tile-layer>
 
-    <ol-interaction-select @select="clicked">
-      <ol-style>
-        <ol-style-stroke color="green" :width="10"></ol-style-stroke>
-        <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
-      </ol-style>
-    </ol-interaction-select>
-
-
-    <ol-vector-layer>
-      <ol-source-vector :projection="projection">
-        <ol-interaction-draw v-if="drawEnable" :type="drawType" @drawend="drawend" @drawstart="drawstart">
-        </ol-interaction-draw>
-      </ol-source-vector>
-
-      <ol-style>
-        <ol-style-stroke color="red" :width="2"></ol-style-stroke>
-        <ol-style-fill color="rgba(255,255,255,0.1)"></ol-style-fill>
-        <ol-style-circle :radius="7">
-          <ol-style-fill color="blue"></ol-style-fill>
-        </ol-style-circle>
-      </ol-style>
-    </ol-vector-layer>
-    <!-- <ol-vector-layer>
-      <ol-source-vector>
-        <ol-feature :properties="{name: 'asdf'}">
-          <ol-geom-point :coordinates="coordinate" :radius="0.02"></ol-geom-point>
-          <ol-style>
-            <ol-style-stroke color="red" :width="3"></ol-style-stroke>
-            <ol-style-fill color="rgba(255,200,0,0.2)"></ol-style-fill>
-          </ol-style>
-        </ol-feature>
-        <ol-feature>
-          <ol-geom-point :coordinates="coordinate"></ol-geom-point>
-          <ol-style>
-            <ol-style-circle :radius="radius">
-              <ol-style-fill color="red"></ol-style-fill>
-              <ol-style-fill color="rgba(255,200,0,0.2)"></ol-style-fill>
-
-            </ol-style-circle>
-          </ol-style>
-        </ol-feature>
-      </ol-source-vector>
-    </ol-vector-layer> -->
 
     <ol-vector-layer>
       <ol-source-vector
         ref="cities"
-        url="https://raw.githubusercontent.com/moffer/woid/feature/add-json/frontend/src/assets/geo.json"
+        url="https://raw.githubusercontent.com/moffer/woid/main/frontend/src/assets/geo.json"
         :format="geoJson"
         :projection="projection"
       >
@@ -77,6 +24,15 @@
         </ol-style-circle>
       </ol-style>
     </ol-vector-layer>
+
+
+
+    <ol-interaction-select @select="clicked">
+      <!-- <ol-style>
+        <ol-style-stroke color="green" :width="10"></ol-style-stroke>
+        <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
+      </ol-style> -->
+    </ol-interaction-select>
   </ol-map>
 </template>
   
@@ -111,10 +67,12 @@ export default {
 
     const clicked = (event: any) => {
       const selected = event.selected;
-      const bikeName = selected[0].values_.name;
-      const bikeId = selected[0].values_.id;
-
-      coordinateStore.updateSelectedBike(bikeName, bikeId);
+      if (selected?.[0]) {
+        const bikeName = selected[0].values_.name;
+        const bikeId = selected[0].values_.id;
+  
+        coordinateStore.updateSelectedBike(bikeName, bikeId);
+      }
     };
 
     return {

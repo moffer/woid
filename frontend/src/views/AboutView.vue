@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Currently available bikes</h1>
     <Map2Component></Map2Component>
-    <button v-if="selectedBike.bikeName">Ausleihen: {{ selectedBike.bikeName }}</button>
+    <v-btn class="rent-btn" color="primary" v-if="selectedBike.bikeName">Ausleihen: {{ selectedBike.bikeName }}</v-btn>
   </div>
 </template>
 
@@ -70,5 +70,9 @@ body {
 .cell-inspect {
   grid-column: 2;
   grid-row: 2;
+}
+
+.rent-btn {
+  margin-top: 10px;
 }
 </style>

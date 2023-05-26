@@ -9,6 +9,7 @@ defineProps<{
     <h1 class="green">{{ msg }}</h1>
     <h3>
       Share your private bike or rent a private bike fast.
+      <p></p>
       <a href="implement routing here" target="_blank" rel="noopener">Register</a> +
       <a href="Login" target="_blank" rel="noopener">Login</a>.
     </h3>
