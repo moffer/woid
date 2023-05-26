@@ -3,7 +3,7 @@ import { NODE_ENV, DATABASE } from '@config';
 import UserModel from '@models/users.model';
 import { logger } from '@utils/logger';
 
-const sequelize = new Sequelize.Sequelize(DATABASE.host, DATABASE.username, DATABASE.password, {
+const sequelize = new Sequelize.Sequelize(DATABASE.database, DATABASE.username, DATABASE.password, {
   dialect: 'postgres',
   host: DATABASE.host,
   port: DATABASE.port,
