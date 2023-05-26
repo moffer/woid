@@ -31,3 +31,20 @@ export const useCoordinateStore = defineStore('coordinate', {
     }
   }
 })
+
+export const useUserStore = defineStore('user', {
+  state: () => {
+    const user: { email?: string} = {};
+
+    return { user }
+  },
+  getters: {
+    loggedInUser: (state) => state.user,
+    isUserLoggedIn: (state) => state.user.email != null
+  },
+  actions: {
+    updateUser(email: string) {
+      this.user = { email };
+    }
+  }
+})

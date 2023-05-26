@@ -2,17 +2,48 @@
   <div id="app">
     <h1>Currently available bikes</h1>
     <Map2Component></Map2Component>
-    <v-btn class="rent-btn" color="primary" v-if="selectedBike.bikeName">Ausleihen: {{ selectedBike.bikeName }}</v-btn>
+    <v-btn class="rent-btn" color="primary" v-if="selectedBike.bikeName" @click="rent()">Ausleihen: {{
+      selectedBike.bikeName }}</v-btn>
   </div>
+
+  <v-snackbar
+      v-model="snackbar"
+    >
+      {{ text }}
+
+      <template v-slot:actions>
+        <v-btn
+          color="pink"
+          variant="text"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
 </template>
 
 <script setup lang="ts">
-import { useCoordinateStore } from '@/stores/counter'
-import { toRefs } from 'vue'
+import { useCoordinateStore, useUserStore } from '@/stores/counter'
+import { toRefs, ref } from 'vue'
+import router from '../router';
 
 const coordinateStore = useCoordinateStore()
+const userStore = useUserStore();
+const snackbar = ref();
+const text = ref();
 
 const { selectedBike } = toRefs(coordinateStore);
+
+function rent() {
+  console.log(userStore.isUserLoggedIn);
+  if (userStore.isUserLoggedIn) {
+    text.value = "You're loggedIn"
+    snackbar.value = true
+  } else {
+    router.push({ name: 'login' })
+  }
+}
 
 </script>
 
