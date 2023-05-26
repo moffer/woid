@@ -2,25 +2,27 @@
   <div id="app">
     <h1>Currently available bikes</h1>
     <Map2Component></Map2Component>
-    <!-- <div class="grid-cell">
-      <div class="cell cell-map">
-      </div> -->
-      <!-- <div class="cell cell-edit">
-        Edit
-      </div>
-      <div class="cell cell-inspect">
-        Inspect
-      </div> -->
-    <!-- </div> -->
+    <button v-if="selectedBike.bikeName">Ausleihen: {{ selectedBike.bikeName }}</button>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useCoordinateStore } from '@/stores/counter'
+import { toRefs } from 'vue'
+
+const coordinateStore = useCoordinateStore()
+
+const { selectedBike } = toRefs(coordinateStore);
+
+</script>
 
 <script lang="ts">
 import Map2Component from '../components/Map2Component.vue';
 
+
 export default {
   name: "App",
-  components: { Map2Component }
+  components: { Map2Component },
 }
 </script>
 

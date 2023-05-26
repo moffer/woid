@@ -1,0 +1,20 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bike1",
+          "id": "235c49a4-47ec-44eb-94d9-228f66e0b162"
+        },
+        "geometry": {
+          "coordinates": [
+            12.099602996290514,
+            49.01569662966659
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      }
+    ]
+  }

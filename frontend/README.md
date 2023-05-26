@@ -50,3 +50,11 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+
+## Deployment
+- `docker build -t moffer/woid-frontend`
+- `docker push moffer/woid-frontend`
+- Login to AWS:
+    `ssh -i "key-file.pem" ec2-user@ec2xyz.eu-west-1.compute.amazonaws.com`
+- 
