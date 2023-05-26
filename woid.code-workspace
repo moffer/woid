@@ -13,5 +13,7 @@
 			"name": "root"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"ansible.python.interpreterPath": "/usr/bin/python"
+	}
 }

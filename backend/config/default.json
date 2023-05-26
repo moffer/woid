@@ -1,0 +1,17 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": "5432",
+    "username": "user",
+    "password": "password",
+    "database": "woid"
+  },
+  "api": {
+    "port": 3000,
+    "secretKey": "hans1234",
+    "logFormat": "dev",
+    "logDir": "../logs",
+    "origin": "*",
+    "credentials": true
+  }
+}
