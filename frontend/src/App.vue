@@ -6,7 +6,7 @@ import "vue3-openlayers/dist/vue3-openlayers.css";
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="https://cdn3.iconfinder.com/data/icons/public-transport/22/icon_12-512.png" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="/woid-icon.png" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="Welcome to Woid bike!" />

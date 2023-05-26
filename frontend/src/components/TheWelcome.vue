@@ -10,68 +10,46 @@ import SupportIcon from './icons/IconSupport.vue'
 <template>
   <WelcomeItem>
     <template #icon>
-      <DocumentationIcon />
+      <v-icon icon="fa-solid fa-share"></v-icon>
     </template>
-    <template #heading>Documentation</template>
+    <template #heading>Bike sharing</template>
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
+    Introducing BikeShare: Share your private bike effortlessly.
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Tooling</template>
+    <template #heading>Wide range</template>
 
-    This project is served by the woid team!
-
-    More instructions are available in <code>README.md</code>.
+    Access a wide range of bikes for any occasion.
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <EcosystemIcon />
+      <v-icon icon="fa-solid fa-money-bill"></v-icon>
     </template>
-    <template #heading>Ecosystem</template>
+    <template #heading>Save money</template>
 
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
+    Save money by renting out your bike and find affordable rentals.
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <CommunityIcon />
     </template>
-    <template #heading>Community</template>
+    <template #heading>Enjoy easy booking process</template>
 
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
+    Enjoy a seamless booking process with a user-friendly interface.
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
       <SupportIcon />
     </template>
-    <template #heading>Support Vue</template>
+    <template #heading>Trust</template>
 
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
+    Trust and security ensured through our verification system.
   </WelcomeItem>
 </template>
