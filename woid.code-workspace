@@ -9,6 +9,10 @@
 			"name": "frontend"
 		},
 		{
+			"path": "controller",
+			"name": "controller"
+		},
+		{
 			"path": ".",
 			"name": "root"
 		}
