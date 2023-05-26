@@ -5,9 +5,13 @@
     <v-btn class="rent-btn" color="primary" v-if="selectedBike.bikeName && !rent.isRented" @click="rentBike()">
       Ausleihen: {{ selectedBike.bikeName }}
     </v-btn>
-    <v-btn class="rent-btn" color="primary" v-if="rent.isRented" @click="giveBackBike()">
-      Abgeben: {{ selectedBike.bikeName }}
-    </v-btn>
+    <div v-if="rent.isRented">
+      <v-btn class="rent-btn" color="primary"  @click="giveBackBike()">
+        Return: {{ selectedBike.bikeName }}
+      </v-btn>
+      <div style="margin:5px;"></div>
+      <v-alert text="Return the bike in the yellow marked circle!"></v-alert>
+    </div>
   </div>
 
   <v-snackbar v-model="snackbar">
