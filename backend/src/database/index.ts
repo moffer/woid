@@ -25,7 +25,16 @@ const sequelize = new Sequelize.Sequelize(DATABASE.database, DATABASE.username, 
   benchmark: true,
 });
 
-sequelize.authenticate();
+// sequelize.authenticate();
+// test connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((error: any) => {
+    console.error('Unable to connect to the database:', error);
+  });
 
 export const DB = {
   Users: UserModel(sequelize),
