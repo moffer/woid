@@ -28,10 +28,13 @@
 
 
     <ol-interaction-select @select="clicked">
-      <!-- <ol-style>
-        <ol-style-stroke color="green" :width="10"></ol-style-stroke>
-        <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
-      </ol-style> -->
+      <ol-style>
+        <ol-style-stroke color="red" :width="2"></ol-style-stroke>
+        <ol-style-fill color="rgba(255,255,255,0.1)"></ol-style-fill>
+        <ol-style-circle :radius="7">
+          <ol-style-fill color="yellow"></ol-style-fill>
+        </ol-style-circle>
+      </ol-style>
     </ol-interaction-select>
   </ol-map>
 </template>
