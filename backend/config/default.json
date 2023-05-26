@@ -1,0 +1,18 @@
+{
+  "database": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "bike_sharing_dev",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "api": {
+    "port": 3000,
+    "secretKey": "hans1234",
+    "logFormat": "dev",
+    "logDir": "../logs",
+    "origin": "*",
+    "credentials": true
+  }
+}
