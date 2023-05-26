@@ -34,7 +34,7 @@ export const useCoordinateStore = defineStore('coordinate', {
 
 export const useUserStore = defineStore('user', {
   state: () => {
-    const user: { email?: string} = {};
+    const user: { email?: string } = {};
 
     return { user }
   },
@@ -45,6 +45,26 @@ export const useUserStore = defineStore('user', {
   actions: {
     updateUser(email: string) {
       this.user = { email };
+    }
+  }
+})
+
+
+export const useRentStore = defineStore('rent', {
+  state: () => {
+    const rent: { isRented?: boolean } = {};
+
+    return { rent }
+  },
+  getters: {
+    bikeRented: (state) => state.rent.isRented,
+  },
+  actions: {
+    updateRent() {
+      this.rent = { isRented: true };
+    },
+    giveBackBike() {
+      this.rent = { isRented: false };
     }
   }
 })

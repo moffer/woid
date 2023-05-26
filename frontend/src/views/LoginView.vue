@@ -10,14 +10,13 @@
 <script setup lang="ts">
 
 import { useUserStore } from '@/stores/counter'
-import { toRefs, ref } from 'vue'
+import { ref } from 'vue'
 import router from '../router';
 
 const store = useUserStore()
 const email = ref();
 
 function submit() {
-    console.log(email)
     store.updateUser(email.value);
     router.push({ name: 'about' })
 }

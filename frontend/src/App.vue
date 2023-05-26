@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import "vue3-openlayers/dist/vue3-openlayers.css";
+import User from './components/User.vue';
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="/woid-icon.png" width="125" height="125" />
+    <User></User>
 
     <div class="wrapper">
       <HelloWorld msg="Welcome to Woid bike!" />

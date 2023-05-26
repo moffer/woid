@@ -10,8 +10,7 @@ defineProps<{
     <h3>
       Share your private bike or rent a private bike fast.
       <p></p>
-      <a href="implement routing here" target="_blank" rel="noopener">Register</a> +
-      <a href="Login" target="_blank" rel="noopener">Login</a>.
+      <a href="/login">Login</a>.
     </h3>
   </div>
 </template>
