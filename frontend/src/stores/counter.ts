@@ -10,3 +10,13 @@ export const useCounterStore = defineStore('counter', () => {
 
   return { count, doubleCount, increment }
 })
+
+export const useCoordinateStore = defineStore('coordinate', () => {
+  const mapCenter = ref([12.100659880924553, 48.995426481656104]);
+  const zoom = ref(13);
+
+  const bicycle = ref([12.12, 49.00999]);
+
+
+  return { mapCenter, zoom, bicycle }
+})
