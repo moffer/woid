@@ -3,8 +3,10 @@ import { NODE_ENV, DATABASE } from '@config';
 import UserModel from '@models/users.model';
 import { logger } from '@utils/logger';
 
+// TODO: The ../config/default.json and the ../config/database.json have duplicate information. This is needed for sequelize-cli to work.  Need to figure out how to use the default.json file instead of this one. Or maybe just use this one and get rid of the default.json file.
+
 const sequelize = new Sequelize.Sequelize(DATABASE.database, DATABASE.username, DATABASE.password, {
-  dialect: 'postgres',
+  dialect: DATABASE.dialect,
   host: DATABASE.host,
   port: DATABASE.port,
   timezone: '+09:00',

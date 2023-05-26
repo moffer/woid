@@ -10,11 +10,12 @@ export interface Config {
     credentials: boolean;
   };
   database: {
-    host: string;
-    port: number;
     username: string;
     password: string;
     database: string;
+    host: string;
+    port: number;
+    dialect: string;
   };
 }
 

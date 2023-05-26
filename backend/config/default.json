@@ -1,10 +1,11 @@
 {
   "database": {
-    "host": "localhost",
-    "port": "5432",
     "username": "postgres",
     "password": "postgres",
-    "database": "bike_sharing_dev"
+    "database": "bike_sharing_dev",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
   },
   "api": {
     "port": 3000,
