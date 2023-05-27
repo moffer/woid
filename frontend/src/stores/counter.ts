@@ -33,7 +33,7 @@ export const useCoordinateStore = defineStore('coordinate', {
       const data: { gps: { synced: boolean, longitude: string, latitude: string }, gsm: { longitude: string, latitude: string } } = JSON.parse(message);
       console.log(data);
       const x = data.gps.synced ? parseFloat(data.gps.longitude) : parseFloat(data.gsm.longitude);
-      const y = data.gps.synced ? parseFloat(data.gps.longitude) : parseFloat(data.gsm.latitude);
+      const y = data.gps.synced ? parseFloat(data.gps.latitude) : parseFloat(data.gsm.latitude);
       this.bicycle = [x, y];
     },
   }
