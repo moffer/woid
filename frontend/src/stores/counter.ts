@@ -48,12 +48,13 @@ export const useUserStore = defineStore('user', {
     }
   }
 })
+import mqttClient from '../services/mqtt-client';
 
 
 export const useRentStore = defineStore('rent', {
   state: () => {
     const rent: { isRented?: boolean } = {};
-
+    
     return { rent }
   },
   getters: {
@@ -61,9 +62,19 @@ export const useRentStore = defineStore('rent', {
   },
   actions: {
     updateRent() {
+      console.log('rent')
+      mqttClient.publish('update/bike1', `{
+        "lock": true
+      }`);
+
+
       this.rent = { isRented: true };
     },
     giveBackBike() {
+      console.log('give back')
+      mqttClient.publish('update/bike1', `{
+        "lock": false
+      }`);
       this.rent = { isRented: false };
     }
   }

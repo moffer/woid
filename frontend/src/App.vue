@@ -6,10 +6,16 @@ import User from './components/User.vue';
 import { useCoordinateStore, useUserStore, useRentStore } from '@/stores/counter'
 
 const userStore = useUserStore();
+
+import mqttClient from './services/mqtt-client';
+
+function subscribe() {
+  mqttClient.subscribe('your-topic');
+}
+
 </script>
 
 <template>
-  
   <header>
     <img alt="Vue logo" class="logo" src="/woid-icon.png" width="125" height="125" />
     <User></User>
@@ -22,6 +28,8 @@ const userStore = useUserStore();
         <RouterLink to="/about">Currently available bikes</RouterLink>
         <RouterLink v-if="userStore.isUserLoggedIn" to="/ownbike">Own bike</RouterLink>
       </nav>
+
+      <v-btn @click="subscribe()">Subscribe</v-btn>
     </div>
   </header>
 
