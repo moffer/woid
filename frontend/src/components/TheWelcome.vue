@@ -52,4 +52,8 @@ import SupportIcon from './icons/IconSupport.vue'
 
     Trust and security ensured through our verification system.
   </WelcomeItem>
+  <div style="margin-top: 20px;"></div>
+  <RouterLink to="about">
+  <v-btn variant="plain">Show available bikes now!</v-btn>
+</RouterLink>
 </template>

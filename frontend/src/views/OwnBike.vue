@@ -1,7 +1,11 @@
 <template>
     <div id="app">
         <h1>Own bikes</h1>
-        <Bike v-for="bike in bikes" :bike="bike"></Bike>
+        <Bike v-for="bike in bikes" :bike="bike">
+            <v-btn variant="outlined">
+                Rent history
+            </v-btn>
+        </Bike>
     </div>
 </template>
   

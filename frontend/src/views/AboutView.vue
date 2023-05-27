@@ -2,11 +2,14 @@
   <div id="app">
     <h1>Currently available bikes</h1>
     <Map2Component></Map2Component>
-    <v-btn class="rent-btn" color="primary" v-if="selectedBike.bikeName && !rent.isRented" @click="rentBike()">
-      Ausleihen: {{ selectedBike.bikeName }}
-    </v-btn>
+    <Bike v-if="selectedBike.bikeName && !rent.isRented" :bike="selectedBike">
+      <v-btn variant="flat" color="primary" @click="rentBike()">
+        Rent
+      </v-btn>
+    </Bike>
+
     <div v-if="rent.isRented">
-      <v-btn class="rent-btn" color="primary"  @click="giveBackBike()">
+      <v-btn class="rent-btn" color="primary" @click="giveBackBike()">
         Return: {{ selectedBike.bikeName }}
       </v-btn>
       <div style="margin:5px;"></div>
@@ -29,6 +32,7 @@
 import { useCoordinateStore, useUserStore, useRentStore } from '@/stores/counter'
 import { toRefs, ref } from 'vue'
 import router from '../router';
+import Bike from '../components/Bike.vue';
 
 const coordinateStore = useCoordinateStore();
 const rentStore = useRentStore();
