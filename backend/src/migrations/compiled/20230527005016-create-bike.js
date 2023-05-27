@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Bikes', {
+    return queryInterface.createTable('bikes', {
       id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.literal('uuid_generate_v4()'),
@@ -31,15 +31,15 @@ module.exports = {
       owner_id: {
         allowNull: false,
         type: Sequelize.UUID,
-        references: { model: 'Users', key: 'id' },
+        references: { model: 'users', key: 'id' },
       },
 
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
 
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
@@ -47,6 +47,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Bikes');
+    return queryInterface.dropTable('bikes');
   },
 };
