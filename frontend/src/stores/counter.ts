@@ -28,7 +28,14 @@ export const useCoordinateStore = defineStore('coordinate', {
   actions: {
     updateSelectedBike(bikeName: string, bikeId: string) {
       this.selectedBikeValue = { bikeName, bikeId };
-    }
+    },
+    updateBikeStatus(message: string) {
+      const data: { gps: { synced: boolean, longitude: string, latitude: string }, gsm: { longitude: string, latitude: string } } = JSON.parse(message);
+      console.log(data);
+      const x = data.gps.synced ? parseFloat(data.gps.longitude) : parseFloat(data.gsm.longitude);
+      const y = data.gps.synced ? parseFloat(data.gps.longitude) : parseFloat(data.gsm.latitude);
+      this.bicycle = [x, y];
+    },
   }
 })
 
@@ -54,7 +61,7 @@ import mqttClient from '../services/mqtt-client';
 export const useRentStore = defineStore('rent', {
   state: () => {
     const rent: { isRented?: boolean } = {};
-    
+
     return { rent }
   },
   getters: {
@@ -77,5 +84,21 @@ export const useRentStore = defineStore('rent', {
       }`);
       this.rent = { isRented: false };
     }
+  }
+})
+
+
+
+
+export const useBikeStatusStore = defineStore('bikeStatus', {
+  state: () => {
+    const coordinate: { x?: number, y?: number } = {};
+
+    return { coordinate }
+  },
+  actions: {
+    updateBikeStatus(x: number, y: number) {
+      this.coordinate = { x: x, y: y };
+    },
   }
 })

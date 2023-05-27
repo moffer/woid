@@ -9,9 +9,6 @@ const userStore = useUserStore();
 
 import mqttClient from './services/mqtt-client';
 
-function subscribe() {
-  mqttClient.subscribe('your-topic');
-}
 
 </script>
 
@@ -29,7 +26,6 @@ function subscribe() {
         <RouterLink v-if="userStore.isUserLoggedIn" to="/ownbike">Own bike</RouterLink>
       </nav>
 
-      <v-btn @click="subscribe()">Subscribe</v-btn>
     </div>
   </header>
 

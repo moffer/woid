@@ -8,12 +8,8 @@
 
 
     <ol-vector-layer>
-      <ol-source-vector
-        ref="cities"
-        url="https://raw.githubusercontent.com/moffer/woid/main/frontend/src/assets/geo.json"
-        :format="geoJson"
-        :projection="projection"
-      >
+      <ol-source-vector ref="cities" url="https://raw.githubusercontent.com/moffer/woid/main/frontend/src/assets/geo.json"
+        :format="geoJson" :projection="projection">
       </ol-source-vector>
 
       <ol-style>
@@ -23,6 +19,23 @@
           <ol-style-fill color="blue"></ol-style-fill>
         </ol-style-circle>
       </ol-style>
+    </ol-vector-layer>
+
+    <ol-vector-layer>
+      <ol-source-vector>
+        <ol-feature>
+          <ol-geom-point :coordinates="coordinate"></ol-geom-point>
+          <ol-style>
+            <ol-style-circle :radius="radius">
+              <ol-style-fill color="rgba(255,255,255,0.1)"></ol-style-fill>
+              <ol-style-stroke
+                color="red"
+                :width="2"
+              ></ol-style-stroke>
+            </ol-style-circle>
+          </ol-style>
+        </ol-feature>
+      </ol-source-vector>
     </ol-vector-layer>
 
     <ol-interaction-select @select="clicked">
@@ -40,7 +53,7 @@
 <script lang="ts">
 import { useCoordinateStore } from '@/stores/counter'
 
-import { ref, inject } from "vue";
+import { ref, inject, toRefs } from "vue";
 export default {
   setup() {
     const coordinateStore = useCoordinateStore()
@@ -63,7 +76,8 @@ export default {
       // console.log(event);
     };
 
-    const coordinate = coordinateStore.bicycle;
+    const {bicycle} = toRefs(coordinateStore);
+    const coordinate = bicycle;
     const radius = ref(10);
 
     const clicked = (event: any) => {
@@ -71,7 +85,7 @@ export default {
       if (selected?.[0]) {
         const bikeName = selected[0].values_.name;
         const bikeId = selected[0].values_.id;
-  
+
         coordinateStore.updateSelectedBike(bikeName, bikeId);
       }
     };
