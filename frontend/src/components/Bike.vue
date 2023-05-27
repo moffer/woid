@@ -1,5 +1,13 @@
 <template>
     <v-card class="mx-auto bike-card" variant="outlined">
+        <v-img
+          height="100"
+          src="/bicycle-788733_960_720.jpg"
+          cover
+          class="text-white"
+        >
+        </v-img>
+
         <v-card-item>
             <div>
                 <div class="text-overline mb-1">
@@ -12,14 +20,12 @@
         </v-card-item>
 
         <v-card-actions>
-            <v-btn variant="outlined">
-                Button
-            </v-btn>
+            <slot></slot>
         </v-card-actions>
     </v-card>
 </template>
 
-<script>
+<script lang="ts">
 
 export default {
     props: ['bike'],
@@ -33,6 +39,6 @@ export default {
 <style>
 .bike-card {
     margin: 10px;
-    width: 175px;
+    width: 200px;
 }
 </style>
