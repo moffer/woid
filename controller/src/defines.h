@@ -5,8 +5,8 @@
 #define SYNC_TIME 5000
 
 typedef struct {
-    long latitude;
-    long longitude;
+    String latitude;
+    String longitude;
     boolean synced;
 } coordinates;
 

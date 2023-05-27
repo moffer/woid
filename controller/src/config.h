@@ -4,10 +4,10 @@
 
 #define ID "bike1"
 
-#define MQTT_SERVER "mqtt.hackaburg.0-0-0-0.dev"
+#define MQTT_SERVER "mqtt.woid.0-0-0-0.dev"
 #define MQTT_PORT 1883
-#define MQTT_USERNAME "username"
-#define MQTT_PASSWORD "password"
+#define MQTT_USERNAME "admin"
+#define MQTT_PASSWORD "udontknow"
 
 #define MQTT_TOPIC_STATUS(topic) ({ \
     sprintf(topic, "status/%s", ID); \

@@ -256,6 +256,8 @@ void setup()
     setupModem();
     enableGPS();
 
+    status.lock = true;
+
     // MQTT Broker setup
     mqtt.setServer(MQTT_SERVER, MQTT_PORT);
     mqtt.setCallback(mqttCallback);
@@ -330,14 +332,14 @@ coordinates *getGPS() {
                    (n_s == "N" ? 1 : -1);
             flon = (floor(flon / 100) + fmod(flon, 100.) / 60) *
                    (e_w == "E" ? 1 : -1);
-            coords.longitude = flon;
-            coords.latitude = flat;
+            coords.longitude = lon;
+            coords.latitude = lat;
             coords.synced = true;
             // Serial.print("Latitude:"); Serial.println(flat);
             // Serial.print("Longitude:"); Serial.println(flon);
-        } else {
-            coords.synced = false;
         }
+    } else {
+        coords.synced = false;
     }
     return &coords;
 }
@@ -348,6 +350,12 @@ void loop() {
     mqtt.loop();
 
     static uint32_t last_update = 0;
+
+    if (!status.lock) {
+        servo.write(0);
+    } else {
+        servo.write(90);
+    }
 
     if  (millis() < last_update) {
         return;
@@ -367,7 +375,7 @@ void loop() {
     gpsData["longitude"] = coords->longitude;
     gpsData["latitude"] = coords->latitude;
     gpsData["synced"] = coords->synced;
-    deviceData["battery"] = Voltage / 1000;
+    deviceData["battery"] = Voltage / 1000 /4.2;
     deviceData["status"] = status.lock;
     gsmData["longitude"] = String(longitudeGsm, 8);
     gsmData["latitude"] = String(latitudeGsm, 8);
@@ -389,11 +397,5 @@ void loop() {
         int err = client.getWriteError();
         Serial.print("could not sent data: Error code ");
         Serial.println(err);
-    }
-
-    if (!status.lock) {
-        servo.write(180);
-    } else {
-        servo.write(0);
     }
 }
